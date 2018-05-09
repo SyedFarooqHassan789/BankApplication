@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">BankAccountApp</string>
     <string name="enter_account_number">Enter Account Number</string>
+    <string name="convert_account_number">Convert Account Number</string>
 </resources>
