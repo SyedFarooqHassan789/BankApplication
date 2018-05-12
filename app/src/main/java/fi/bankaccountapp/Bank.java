@@ -1,7 +1,5 @@
 package fi.bankaccountapp;
 
-import java.util.Set;
-
 import fi.bankaccountapp.common.Extras;
 
 /**
@@ -11,7 +9,6 @@ import fi.bankaccountapp.common.Extras;
 public class Bank {
     private String accountNumber;
 
-    //Set testSet = {};
     public void setAccountNumber(String accountNumber) {
         this.accountNumber = accountNumber;
     }
@@ -24,32 +21,63 @@ public class Bank {
         String[] splitedAccountNumber = accountNumber.split("-");
         String firstSplitedPart = splitedAccountNumber[0];
         String secondSplitedPart = splitedAccountNumber[1];
-        String accStatus;
+        String accountStatus;
 
         if (firstSplitedPart.length() == Extras.FIRST_PART_LENGTH &&
                 secondSplitedPart.length() >= Extras.MIN_SECOND_PART_LENGTH
                 && secondSplitedPart.length() <= Extras.MAX_SECOND_PART_LENGTH) {
-            accStatus = addingZeros(firstSplitedPart, secondSplitedPart);
+            accountStatus = addingZeros(firstSplitedPart, secondSplitedPart);
         } else
             return "-1";
-        return accStatus;
+        return accountStatus;
     }
 
     public String addingZeros(String firstSplitedPart, String secondSplitedPart) {
 
         String electronicAccount = "";
         String zeros = null;
-        boolean isAccValid;
-        String compAccountNumber = accountNumber.replace("-", "");
-        int calculateZeros = Extras.MAX_LENGTH - compAccountNumber.length();
+        boolean isAccountValid;
+        String completeAccountNumber = accountNumber.replace("-", "");
+        int calculateZeros = Extras.MAX_LENGTH - completeAccountNumber.length();
 
         if (calculateZeros != 0)
             zeros = String.format("%-" + calculateZeros + "s", "0")
                     .replace(" ", "0");
 
 
-        int firstDigit = Character.getNumericValue(firstSplitedPart.charAt(0));
-        int firstTwoDigits = Integer.parseInt("" + firstSplitedPart.charAt(0) + firstSplitedPart.charAt(1));
+        int firstDigit = Character.getNumericValue(firstSplitedPart.charAt(Extras.FIRST_INDEX));
+        int firstTwoDigits = Integer.parseInt("" + firstSplitedPart.charAt(Extras.FIRST_INDEX) +
+                firstSplitedPart.charAt(Extras.SECOND_INDEX));
+
+        if (completeAccountNumber.length() == Extras.MAX_LENGTH) {
+            electronicAccount = completeAccountNumber;
+        } else if (firstDigit == Extras.SP_POP_AKTIA_BANK ||
+                firstDigit == Extras.OP_OKO_BANK) {
+            electronicAccount = completeAccountNumber.replaceAll("(.{" + Extras.ADD_ZERO_AT_SEVENTH +
+                    "})(?!$)", "$1" + zeros);
+        } else if (firstDigit == Extras.NORDEA_BANK_1 ||
+                firstDigit == Extras.NORDEA_BANK_2 ||
+                firstTwoDigits == Extras.SHB_BANK ||
+                firstTwoDigits == Extras.SEB_BANK ||
+                firstTwoDigits == Extras.DANSKE_BANK ||
+                firstTwoDigits == Extras.TAPIOLA_BANK ||
+                firstTwoDigits == Extras.DNB_NOR_BANK ||
+                firstTwoDigits == Extras.SWED_BANK ||
+                firstTwoDigits == Extras.S_BANK ||
+                firstTwoDigits == Extras.ALAND_BANK ||
+                firstTwoDigits == Extras.SAMPO_BANK) {
+            electronicAccount = completeAccountNumber.replaceAll("(.{" + Extras.ADD_ZERO_AT_SIXTH +
+                    "})(?!$)", "$1" + zeros);
+        }
+        isAccountValid = LunhAlgorithm.CheckAccNumber(electronicAccount);
+
+        if (isAccountValid)
+            return "Valid";
+        else
+            return "Not Valid";
+    }
+
+}
 //3939 0054 0601 65
 //1146 3500 8703 88
 //1439 3500 1059 30
@@ -58,32 +86,3 @@ public class Bank {
 //5731 6520 1534 89
 //5731 6520 1313 94
 //4790 0010 0004 67
-        if (compAccountNumber.length() == Extras.MAX_LENGTH) {
-            electronicAccount = compAccountNumber;
-        } else if (firstDigit == 4 ||
-                firstDigit == 5) {
-            electronicAccount = compAccountNumber.replaceAll("(.{" + Extras.ADD_ZERO_AT_SEVENTH +
-                    "})(?!$)", "$1" + zeros);
-        } else if (firstDigit == 1 ||
-                firstDigit == 2 ||
-                firstTwoDigits == 31 ||
-                firstTwoDigits == 33 ||
-                firstTwoDigits == 34 ||
-                firstTwoDigits == 36 ||
-                firstTwoDigits == 37 ||
-                firstTwoDigits == 38 ||
-                firstTwoDigits == 39 ||
-                firstTwoDigits == 6 ||
-                firstTwoDigits == 8) {
-            electronicAccount = compAccountNumber.replaceAll("(.{" + Extras.ADD_ZERO_AT_SIXTH +
-                    "})(?!$)", "$1" + zeros);
-        }
-        isAccValid = LunhAlgorithm.CheckAccNumber(electronicAccount);
-
-        if (isAccValid)
-            return "Valid";
-        else
-            return "Not Valid";
-    }
-
-}
