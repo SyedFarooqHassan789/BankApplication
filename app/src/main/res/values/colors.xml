@@ -3,4 +3,16 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+    <color name="colorWhite">#FFFFFF</color>
+
+    <color name="colorBackgroundDark">#333333</color>
+    <color name="colorBackgroundGrey">#444444</color>
+    <color name="colorBackgroundLight">#eeeeee</color>
+
+    <color name="colorFontDark">#444444</color>
+    <color name="colorFontGrey">#999999</color>
+    <color name="colorFontLight">#eeeeee</color>
+
+    <color name="colorButtonGreen">#336600</color>
+    <color name="colorButtonRed">#ec5840</color>
 </resources>

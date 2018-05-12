@@ -2,4 +2,6 @@
     <string name="app_name">BankAccountApp</string>
     <string name="enter_account_number">Enter Account Number</string>
     <string name="convert_account_number">Convert Account Number</string>
+    <string name="validity">Validity</string>
+    <string name="bank_name">BankName</string>
 </resources>

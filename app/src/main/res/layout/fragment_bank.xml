@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBackgroundLight">
+
+    <TextView
+        android:id="@+id/text_view_text_validity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_large"
+        android:text="@string/validity" />
+
+    <TextView
+        android:id="@+id/text_view_status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_large"
+        android:layout_toEndOf="@+id/text_view_text_validity"
+        android:paddingEnd="@dimen/padding_default"
+        android:paddingStart="@dimen/padding_default"
+        android:text="@string/validity" />
+
+    <TextView
+        android:id="@+id/text_view_text_bank_name"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/text_view_text_validity"
+        android:layout_margin="@dimen/margin_large"
+        android:text="@string/bank_name" />
+
+    <TextView
+        android:id="@+id/text_view_bank_name"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/text_view_status"
+        android:layout_margin="@dimen/margin_large"
+        android:layout_toEndOf="@+id/text_view_text_bank_name"
+        android:text="@string/validity" />
+
+
+</RelativeLayout>
