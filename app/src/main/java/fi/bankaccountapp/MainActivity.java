@@ -1,16 +1,16 @@
 package fi.bankaccountapp;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private EditText editTextAccountNumber;
     private Button buttonSubmitAccountNumber;
+    private Bank bank;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,17 +28,29 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void InitializeData() {
+        bank = new Bank();
     }
 
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.button_submit_account_number:
-                if(editTextAccountNumber.getText() != null){
-                    
+                if (editTextAccountNumber.getText() != null && editTextAccountNumber.getText().
+                        toString().contains("-")) {
+                    bank.setAccountNumber(editTextAccountNumber.getText().toString());
+                    String isAccountValid = bank.Validate();
+                    if (isAccountValid.equals("-1")) {
+                        bank.getAccountNumber();
+
+                    } else
+                    {
+                        //UpdateUI
+                    }
+                    break;
                 }
-                break;
+
         }
 
     }
+
 }
