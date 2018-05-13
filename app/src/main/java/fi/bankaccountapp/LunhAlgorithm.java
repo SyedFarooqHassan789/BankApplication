@@ -1,7 +1,6 @@
 package fi.bankaccountapp;
 
 import fi.bankaccountapp.common.Extras;
-import fi.bankaccountapp.data.AccountData;
 
 
 public class LunhAlgorithm {
