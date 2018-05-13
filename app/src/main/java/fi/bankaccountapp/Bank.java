@@ -71,16 +71,27 @@ public class Bank {
             electronicAccount = completeAccountNumber.replaceAll("(.{" + Extras.ADD_ZERO_AT_SIXTH +
                     "})(?!$)", "$1" + zeros);
         }
-        isAccountValid = LunhAlgorithm.CheckAccNumber(electronicAccount);
+        isAccountValid = LunhAlgorithm.checkAccNumber(electronicAccount);
         accountData.setValid(isAccountValid);
 
+        //if account is not valid calculate new check digit to make valid
         if (!isAccountValid) {
             accountData.setElectronicAccount("-");
+            accountData.setValidAccountNumber(accountNotValid(electronicAccount));
         } else {
             accountData.setElectronicAccount(electronicAccount);
+            accountData.setValidAccountNumber("-");
         }
 
         return accountData;
+    }
+
+    public String accountNotValid(String electronicAccount) {
+        int checkDigit = 0;
+        checkDigit = LunhAlgorithm.calculateCorrectCheckDigit(electronicAccount);
+        String accountNumber = electronicAccount.substring(0, electronicAccount.length() - 1);
+
+        return accountNumber + checkDigit;
     }
 
 }
