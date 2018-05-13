@@ -37,15 +37,17 @@ public class BankFragment extends Fragment {
 
             if (accountData != null) {
                 textViewElectronicAccount.setText(accountData.getElectronicAccount());
+                textViewValidAccountNumber.setText(accountData.getValidAccountNumber());
                 if (accountData.isValid()) {
                     textViewValidity.setText(R.string.account_number_is_valid);
                     textViewValidity.setTextColor(getResources().getColor(R.color.colorButtonGreen));
                     textViewElectronicAccount.setTextColor(getResources().getColor(R.color.colorButtonGreen));
+                    textViewValidAccountNumber.setTextColor(getResources().getColor(R.color.colorButtonRed));
                 } else {
                     textViewValidity.setText(R.string.account_number_is_not_valid);
                     textViewValidity.setTextColor(getResources().getColor(R.color.colorButtonRed));
                     textViewElectronicAccount.setTextColor(getResources().getColor(R.color.colorButtonRed));
-
+                    textViewValidAccountNumber.setTextColor(getResources().getColor(R.color.colorButtonGreen));
                 }
 
             }
