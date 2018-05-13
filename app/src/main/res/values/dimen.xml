@@ -1,12 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <dimen name="padding_default">19dp</dimen>
+    <dimen name="padding_default">18dp</dimen>
     <dimen name="padding_normal">25dp</dimen>
     <dimen name="padding_large">35dp</dimen>
 
     <dimen name="margin_default">11dp</dimen>
     <dimen name="margin_normal">22dp</dimen>
     <dimen name="margin_large">33dp</dimen>
+    <dimen name="margin_large_x">50dp</dimen>
+    <dimen name="margin_large_xx">110dp</dimen>
+
+    <dimen name="button_size">40dp</dimen>
+    <dimen name="edit_text_height">37dp</dimen>
 
 </resources>

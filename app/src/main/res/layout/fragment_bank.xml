@@ -2,41 +2,43 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorBackgroundLight">
+    android:background="@color/colorBackgroundGrey">
 
     <TextView
         android:id="@+id/text_view_text_validity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/margin_large"
-        android:text="@string/validity" />
+        android:layout_margin="@dimen/margin_default"
+        android:text="@string/validity"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/text_view_status"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/margin_large"
+        android:layout_margin="@dimen/margin_default"
         android:layout_toEndOf="@+id/text_view_text_validity"
         android:paddingEnd="@dimen/padding_default"
         android:paddingStart="@dimen/padding_default"
-        android:text="@string/validity" />
+        android:textStyle="bold" />
 
     <TextView
-        android:id="@+id/text_view_text_bank_name"
+        android:id="@+id/text_view_text_electronic_account"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_below="@+id/text_view_text_validity"
-        android:layout_margin="@dimen/margin_large"
-        android:text="@string/bank_name" />
+        android:layout_margin="@dimen/margin_default"
+        android:text="@string/e_account_number"
+        android:textStyle="bold" />
 
     <TextView
-        android:id="@+id/text_view_bank_name"
+        android:id="@+id/text_view_electronic_account"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_below="@+id/text_view_status"
-        android:layout_margin="@dimen/margin_large"
-        android:layout_toEndOf="@+id/text_view_text_bank_name"
-        android:text="@string/validity" />
+        android:layout_margin="@dimen/margin_default"
+        android:layout_toEndOf="@+id/text_view_text_electronic_account"
+        android:textStyle="bold" />
 
 
 </RelativeLayout>

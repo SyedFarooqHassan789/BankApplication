@@ -4,33 +4,41 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorBackgroundDark"
+    android:background="@color/colorWhite"
     tools:context="fi.bankaccountapp.MainActivity">
 
     <EditText
         android:id="@+id/edit_text_account_number"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="@dimen/edit_text_height"
         android:layout_margin="@dimen/padding_large"
         android:background="@color/colorBackgroundLight"
         android:hint="@string/enter_account_number"
-        android:textColor="@color/colorWhite"
+        android:inputType="phone"
+        android:textColor="@color/colorBackgroundDark"
         app:layout_constraintBottom_toBottomOf="parent" />
 
     <Button
         android:id="@+id/button_submit_account_number"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="@dimen/button_size"
         android:layout_below="@+id/edit_text_account_number"
         android:layout_centerHorizontal="true"
-        android:text="@string/convert_account_number" />
+        android:background="@color/colorBackgroundMagenta"
+        android:paddingEnd="@dimen/padding_default"
+        android:paddingStart="@dimen/padding_default"
+        android:text="@string/check_account_number"
+        android:textColor="@color/colorWhite" />
 
     <fragment
         android:id="@+id/fragment_bank"
-        android:name="fi.bankaccountapp.BankFragment"
+        android:name="fi.bankaccountapp.fragment.BankFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/button_submit_account_number"
-        android:layout_margin="@dimen/margin_large" />
+        android:layout_marginBottom="@dimen/margin_large_xx"
+        android:layout_marginEnd="@dimen/margin_normal"
+        android:layout_marginStart="@dimen/margin_normal"
+        android:layout_marginTop="@dimen/margin_large" />
 
 </RelativeLayout>
