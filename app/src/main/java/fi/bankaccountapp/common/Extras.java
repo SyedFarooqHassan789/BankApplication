@@ -26,5 +26,6 @@ public abstract class Extras {
     public static int OP_OKO_BANK = 5;
     public static int ALAND_BANK = 6;
     public static int SAMPO_BANK = 8;
+    public static String ACCOUNT_DATA = "Account_data";
 
 }

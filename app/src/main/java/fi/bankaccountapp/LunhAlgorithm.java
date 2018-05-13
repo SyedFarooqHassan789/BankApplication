@@ -1,13 +1,13 @@
 package fi.bankaccountapp;
 
-import fi.bankaccountapp.data.AccountNumber;
+import fi.bankaccountapp.data.AccountData;
 
 /**
  * Created by Farooq on 5/11/2018.
  */
 
 public class LunhAlgorithm {
-    AccountNumber accountNumber;
+    AccountData accountNumber;
 
     public LunhAlgorithm() {
 
