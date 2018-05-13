@@ -1,6 +1,7 @@
 package fi.bankaccountapp;
 
 import fi.bankaccountapp.common.Extras;
+import fi.bankaccountapp.data.AccountData;
 
 /**
  * Created by Farooq on 5/9/2018.
@@ -8,6 +9,7 @@ import fi.bankaccountapp.common.Extras;
 
 public class Bank {
     private String accountNumber;
+
 
     public void setAccountNumber(String accountNumber) {
         this.accountNumber = accountNumber;
@@ -17,26 +19,27 @@ public class Bank {
         return accountNumber;
     }
 
-    public String Validate() {
+    public AccountData Validate() {
         String[] splitedAccountNumber = accountNumber.split("-");
         String firstSplitedPart = splitedAccountNumber[0];
         String secondSplitedPart = splitedAccountNumber[1];
-        String accountStatus;
+        AccountData accountData = null;
 
         if (firstSplitedPart.length() == Extras.FIRST_PART_LENGTH &&
                 secondSplitedPart.length() >= Extras.MIN_SECOND_PART_LENGTH
                 && secondSplitedPart.length() <= Extras.MAX_SECOND_PART_LENGTH) {
-            accountStatus = addingZeros(firstSplitedPart, secondSplitedPart);
-        } else
-            return "-1";
-        return accountStatus;
+            accountData = addingZeros(firstSplitedPart);
+        }
+        return accountData;
     }
 
-    public String addingZeros(String firstSplitedPart, String secondSplitedPart) {
+    private AccountData addingZeros(String firstSplitedPart) {
 
         String electronicAccount = "";
         String zeros = null;
         boolean isAccountValid;
+        AccountData accountData = new AccountData();
+
         String completeAccountNumber = accountNumber.replace("-", "");
         int calculateZeros = Extras.MAX_LENGTH - completeAccountNumber.length();
 
@@ -70,11 +73,16 @@ public class Bank {
                     "})(?!$)", "$1" + zeros);
         }
         isAccountValid = LunhAlgorithm.CheckAccNumber(electronicAccount);
+        accountData.setValid(isAccountValid);
 
-        if (isAccountValid)
-            return "Valid";
-        else
-            return "Not Valid";
+        if (!isAccountValid) {
+            accountData.setElectronicAccount("-");
+        }
+        else{
+            accountData.setElectronicAccount(electronicAccount);
+        }
+
+        return accountData;
     }
 
 }
