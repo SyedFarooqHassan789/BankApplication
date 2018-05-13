@@ -5,12 +5,9 @@ import fi.bankaccountapp.data.AccountData;
 
 
 public class LunhAlgorithm {
-    AccountData accountNumber;
 
-    public LunhAlgorithm() {
 
-    }
-
+    //Check account number using LunhAlgorithm
     public static boolean CheckAccNumber(String electronicAccount) {
         if (electronicAccount == null)
             return false;
@@ -20,7 +17,7 @@ public class LunhAlgorithm {
             int n = Integer.parseInt(electronicAccount.substring(i, i + 1));
             if (alternate) {
                 n *= Extras.DOUBLE_VALUE;
-                if (n > 9) {
+                if (n > Extras.GREATER_THEN_NINE) {
                     n = (n % 10) + 1;
                 }
             }

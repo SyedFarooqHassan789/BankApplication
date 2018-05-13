@@ -3,6 +3,7 @@ package fi.bankaccountapp.common;
 
 public abstract class Extras {
     public static int MAX_LENGTH = 14;
+    public static int GREATER_THEN_NINE = 9;
     public static int DOUBLE_VALUE = 2;
     public static int FIRST_PART_LENGTH = 6;
     public static int MIN_SECOND_PART_LENGTH = 2;

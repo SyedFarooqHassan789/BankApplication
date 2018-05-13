@@ -108,6 +108,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 
+    //validation for edit text
     public void checkEditText() {
         if (editTextAccountNumber.getText() != null && editTextAccountNumber.getText().
                 toString().contains("-")) {
