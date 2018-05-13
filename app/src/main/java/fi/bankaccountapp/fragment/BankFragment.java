@@ -11,9 +11,6 @@ import fi.bankaccountapp.R;
 import fi.bankaccountapp.common.Extras;
 import fi.bankaccountapp.data.AccountData;
 
-/**
- * Created by Farooq on 5/12/2018.
- */
 
 public class BankFragment extends Fragment {
 

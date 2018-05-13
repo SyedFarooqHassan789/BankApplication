@@ -3,9 +3,6 @@ package fi.bankaccountapp;
 import fi.bankaccountapp.common.Extras;
 import fi.bankaccountapp.data.AccountData;
 
-/**
- * Created by Farooq on 5/9/2018.
- */
 
 public class Bank {
     private String accountNumber;
@@ -19,7 +16,8 @@ public class Bank {
         return accountNumber;
     }
 
-    public AccountData Validate() {
+    //validateAccountNumber the account number first
+    public AccountData validateAccountNumber() {
         String[] splitedAccountNumber = accountNumber.split("-");
         String firstSplitedPart = splitedAccountNumber[0];
         String secondSplitedPart = splitedAccountNumber[1];
@@ -33,6 +31,7 @@ public class Bank {
         return accountData;
     }
 
+    //Checks banks and add zeros according to requirement
     private AccountData addingZeros(String firstSplitedPart) {
 
         String electronicAccount = "";
@@ -77,8 +76,7 @@ public class Bank {
 
         if (!isAccountValid) {
             accountData.setElectronicAccount("-");
-        }
-        else{
+        } else {
             accountData.setElectronicAccount(electronicAccount);
         }
 

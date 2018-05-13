@@ -61,18 +61,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.button_submit_account_number:
-                if (editTextAccountNumber.getText() != null && editTextAccountNumber.getText().
-                        toString().contains("-")) {
-                    bank.setAccountNumber(editTextAccountNumber.getText().toString());
-                    AccountData accountData = bank.Validate();
-                    if (accountData == null) {
-                        createDialog();
-                    }
-                    setFragment(accountData);
-                    break;
-                } else {
-                    createDialog();
-                }
+                checkEditText();
+                break;
 
         }
 
@@ -116,6 +106,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             text.append('-');
         }
 
+    }
+
+    public void checkEditText() {
+        if (editTextAccountNumber.getText() != null && editTextAccountNumber.getText().
+                toString().contains("-")) {
+            bank.setAccountNumber(editTextAccountNumber.getText().toString());
+            AccountData accountData = bank.validateAccountNumber();
+            if (accountData == null) {
+                createDialog();
+            }
+            setFragment(accountData);
+        } else {
+            createDialog();
+        }
     }
 
 }

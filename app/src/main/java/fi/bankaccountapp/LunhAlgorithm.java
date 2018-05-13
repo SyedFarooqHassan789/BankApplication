@@ -1,10 +1,8 @@
 package fi.bankaccountapp;
 
+import fi.bankaccountapp.common.Extras;
 import fi.bankaccountapp.data.AccountData;
 
-/**
- * Created by Farooq on 5/11/2018.
- */
 
 public class LunhAlgorithm {
     AccountData accountNumber;
@@ -21,7 +19,7 @@ public class LunhAlgorithm {
         for (int i = electronicAccount.length() - 1; i >= 0; i--) {
             int n = Integer.parseInt(electronicAccount.substring(i, i + 1));
             if (alternate) {
-                n *= 2;
+                n *= Extras.DOUBLE_VALUE;
                 if (n > 9) {
                     n = (n % 10) + 1;
                 }
