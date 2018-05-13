@@ -25,7 +25,7 @@
     <TextView
         android:id="@+id/text_view_text_electronic_account"
         android:layout_width="wrap_content"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/text_view_text_validity"
         android:layout_margin="@dimen/margin_default"
         android:text="@string/e_account_number"
@@ -34,8 +34,26 @@
     <TextView
         android:id="@+id/text_view_electronic_account"
         android:layout_width="wrap_content"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/text_view_status"
+        android:layout_margin="@dimen/margin_default"
+        android:layout_toEndOf="@+id/text_view_text_electronic_account"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/text_view_text_valid_account"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/text_view_text_electronic_account"
+        android:layout_margin="@dimen/margin_default"
+        android:text="@string/valid_account"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/text_view_valid_account"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/text_view_electronic_account"
         android:layout_margin="@dimen/margin_default"
         android:layout_toEndOf="@+id/text_view_text_electronic_account"
         android:textStyle="bold" />

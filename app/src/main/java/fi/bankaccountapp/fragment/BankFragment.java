@@ -16,6 +16,7 @@ public class BankFragment extends Fragment {
 
     private TextView textViewValidity;
     private TextView textViewElectronicAccount;
+    private TextView textViewValidAccountNumber;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -57,7 +58,7 @@ public class BankFragment extends Fragment {
     private void InitializeUI(View view) {
         textViewValidity = view.findViewById(R.id.text_view_status);
         textViewElectronicAccount = view.findViewById(R.id.text_view_electronic_account);
-
+        textViewValidAccountNumber = view.findViewById(R.id.text_view_valid_account);
 
     }
 
