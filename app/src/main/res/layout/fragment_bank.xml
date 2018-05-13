@@ -56,6 +56,8 @@
         android:layout_below="@+id/text_view_electronic_account"
         android:layout_margin="@dimen/margin_default"
         android:layout_toEndOf="@+id/text_view_text_electronic_account"
+        android:paddingEnd="@dimen/padding_default"
+        android:paddingStart="@dimen/padding_default"
         android:textStyle="bold" />
 
 
