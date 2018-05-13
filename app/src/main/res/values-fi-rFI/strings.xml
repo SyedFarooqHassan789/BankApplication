@@ -7,6 +7,7 @@
     <string name="account_number_is_valid">Pätevä</string>
     <string name="account_number_is_not_valid">Ei voimassa</string>
     <string name="e_account_number">E-Tili:</string>
+    <string name="valid_account">Voimassa-Tili:</string>
     <string name="enter_again">Anna tilinumero uudelleen</string>
     <string name="you_have_entered_invalid_account_number_it_should_have_hyphen_first_part_should_have_6_digits_and_second_part_should_have_2_8_digits">
 Olet syöttänyt virheellisen tilinumeron, sillä siinä pitäisi olla yhdysviiva, ensimmäisen osan pitäisi olla 6 numeroa ja toisen osan pitäisi olla 2-8 numeroa
